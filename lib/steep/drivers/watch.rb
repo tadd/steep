@@ -16,11 +16,6 @@ module Steep
       end
 
       def run()
-        if dirs.empty?
-          stdout.puts "Specify directories to watch"
-          return 1
-        end
-
         project = load_config()
 
         loader = Project::FileLoader.new(project: project)

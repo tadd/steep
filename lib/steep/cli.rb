@@ -124,6 +124,7 @@ module Steep
       Drivers::Watch.new(stdout: stdout, stderr: stderr).tap do |command|
         OptionParser.new do |opts|
           opts.banner = "Usage: steep watch [options] [dirs]"
+          opts.on("--steepfile=PATH") {|path| command.steepfile = Pathname(path) }
           handle_logging_options opts
         end.parse!(argv)
 
